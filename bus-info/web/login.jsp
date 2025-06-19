@@ -82,7 +82,7 @@
              <h1>Login here for bus-info System</h1>
         <div class="form">
        
-            <form>
+            <form action="/login" method="POST">
                 <label for="username" class="label1" >Username : <label><br>
                 <input id="username" type="text" name="username"><br>
                 <label for="password" class="label2" >Password : <label><br>
