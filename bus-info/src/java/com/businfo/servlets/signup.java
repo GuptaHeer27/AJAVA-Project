@@ -1,3 +1,5 @@
+package com.businfo.servlets;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
@@ -19,16 +21,17 @@ import java.sql.*;
  *
  * @author heerd
  */
-@WebServlet(urlPatterns = {"/signup"})
+@WebServlet("/signup")
 public class signup extends HttpServlet {
- @Override
  
+ @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         Connection con=null;
+        System.out.println("working");
+         Connection con;
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con=DriverManager.getConnection("jdbc:mysql://localhost/delta","root","maheer2709");
+            con=DriverManager.getConnection("jdbc:mysql://localhost/userinfo","root","maheer2709");
             
             String name=request.getParameter("name");
             String email=request.getParameter("email");
@@ -50,8 +53,12 @@ public class signup extends HttpServlet {
             
               
           pst.executeUpdate();
+          RequestDispatcher rd=request.getRequestDispatcher("/login.jsp");
+            rd.forward(request,response);
+          
+          
         }
-          catch(Exception e){
+          catch(ServletException | IOException | ClassNotFoundException | SQLException e){
               RequestDispatcher rd=request.getRequestDispatcher("error.jsp");
             rd.forward(request,response);
             

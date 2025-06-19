@@ -82,13 +82,13 @@
              <h1>Login here for bus-info System</h1>
         <div class="form">
        
-            <form action="/login" method="POST">
+            <form action="login" method="POST">
                 <label for="username" class="label1" >Username : <label><br>
                 <input id="username" type="text" name="username"><br>
                 <label for="password" class="label2" >Password : <label><br>
                 <input id="password" type="text" name="password"><br>
-                <a href="signup.jsp" class="sign" >Are you new user?click here for Sign Up</a>
-                <a href="home.jsp"><button>Login</button></a>
+                <a href="signup_1.jsp" class="sign" >Are you new user?click here for Sign Up</a>
+                <button>Login</button>
             </form>
         </div>
     </body>

@@ -77,18 +77,12 @@
     </style>
     <body>
         
-        <h1 id="wel">Welcome To Bus info</h1>
-        <div class="cont">
-            <button><a href="home.jsp">Home</a></button>
-            <button><a href="viewbus.jsp">View Bus</a></button>
-            <button><a href="bookticket.jsp">Book Ticket</a></button>
-            <button id="logout"><a href="login.jsp">Log Out</a></button>
-        </div>
+      
         
         
         <div class="contain">
             <h1>Sign Up Your Detail</h1>
-            <form action="signup.java" method="post">
+            <form action="signup" method="POST">
             <label> Name   &nbsp &nbsp&nbsp &nbsp  &nbsp  : <input type="text" name="name" \></label><br>
             <label> Email  &nbsp &nbsp&nbsp &nbsp  &nbsp  : <input type="email" name="email"\></label><br>
             <label> Username   &nbsp : <input type="text" name="username"\></label><br>
@@ -98,7 +92,7 @@
               <label for="male">Male</label><br>
              <input type="radio" id="female" name="gender" value="female">
              <label for="female">Female</label><br>
-            <button type="submit" class="btn" >submit</button>
+             <a href="login.jsp"><button type="submit" class="btn" >submit</button></a>
              <button type="reset" class="btn" >reset</button>
             
             </form>
