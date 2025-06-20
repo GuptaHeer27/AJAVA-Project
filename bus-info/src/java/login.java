@@ -25,7 +25,8 @@ public class login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+          System.out.println("🔥 LOGIN SERVLET TRIGGERED");
+         String ans=null;
         Connection con;
         try{
 
@@ -33,21 +34,32 @@ public class login extends HttpServlet {
             con=DriverManager.getConnection("jdbc:mysql://localhost/userinfo","root","maheer2709");
         
         String username=request.getParameter("username");
-        String password=request.getParameter("password");
-        
+        String Password=request.getParameter("password");
         Statement s=con.createStatement();
-        String sql="Select Password from users where Username=username";
+        String sql="Select Password from users where Username='" + username + "'";
         ResultSet rs=s.executeQuery(sql);
         
-        if(password==rs.getString("Password")){
-            RequestDispatcher rd=request.getRequestDispatcher("/home_1.jsp");
+         response.getWriter().println("Select Password from users where Username='" + username + "'");
+         
+         while(rs.next()){
+            ans =rs.getString("Password");
+        
+         }
+         
+      response.getWriter().println(ans);
+               
+        
+        if(Password.equals(ans)){
+              response.getWriter().println("Servlet reached.");
+            RequestDispatcher rd=request.getRequestDispatcher("home_1.jsp");
             rd.forward(request,response);   
         }
         }
          catch(Exception e){
+             e.printStackTrace();
         
-            RequestDispatcher rd=request.getRequestDispatcher("error.jsp");
-            rd.forward(request,response);
+//            RequestDispatcher rd=request.getRequestDispatcher("error.jsp");
+//            rd.forward(request,response);
             
         }
         
