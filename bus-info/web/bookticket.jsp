@@ -12,6 +12,11 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <form action="viewbus.jsp" method="Post">
+            Source:<input type="text" name="src"><br>
+            Destination:<input type="text" name="des"><br>
+            Date:<input type="date" name="date"><br>
+            <button>View</button>
+        </form>
     </body>
 </html>
